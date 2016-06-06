@@ -5,7 +5,7 @@ var totalQuestions = 3;      // Total number of questions
 
 // Start questionnaire: hide intro div and call getNext() on quize
 function startQuestionnaire() {
-  document.getElementById('header').style.display='none';
+  document.getElementById('intro').style.display='none';
   getNext();
 }
 
