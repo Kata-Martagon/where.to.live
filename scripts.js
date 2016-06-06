@@ -18,8 +18,7 @@ function getNext() {
   if (current <= max) {
     document.getElementById('Question' + current).style.display='block';
   } else {
-    document.getElementById('Result').style.display='block';
-    document.getElementById('Score').textContent=score;
+    showResult();
   }
 
   console.log(score);
@@ -28,4 +27,22 @@ function getNext() {
 function getSelected(q){
   var radio = document.getElementById('MyForm').elements['A' + q];
   return +radio.value;
+}
+
+function showResult() {
+  var house;
+  var houseImage;
+  if (score <= 4) {
+    house = "Doghouse";
+    houseImage = 'https://cravencottagenewsround.files.wordpress.com/2014/08/doghouse.jpg';
+  } else if (score <= 6) {
+    house = "Warehouse";
+    houseImage = 'http://enpundit.s3.amazonaws.com/wp-content/uploads/2012/06/Oriental-Warehouse-Apartment-Loft-Conversion-in-San-Francisco-3.jpg';
+  } else {
+    house = "Farm";
+    houseImage = 'http://www.insurewithellis.com/uploads/1/3/3/7/13377767/9946815_orig.jpg';
+  }
+  document.getElementById('Result').style.display='block';
+  document.getElementById('Score').textContent=house;
+  document.getElementById('houseImage').src=houseImage;
 }
