@@ -1,48 +1,62 @@
-var current = 0;
-var score = 0;
-var max = 3;
+// Global variables
+var current = 0;             // Current question (quiz not started so current question set to zero)
+var score = 0;               // Cumulative score
+var totalQuestions = 3;      // Total number of questions
 
+// Start questionnaire: hide intro div and call getNext() on quize
 function startQuestionnaire() {
-  document.getElementById('FirstPage').style.display='none';
+  document.getElementById('header').style.display='none';
   getNext();
 }
 
+// Gets next question in quiz
 function getNext() {
+
+  // Store ref to last question number and move pointer to current question on
   var last = current;
   current += 1;
+
   if (last > 0) {
+    // If last was a valid question (i.e. quiz already started)
+    // update the score with last question answer and then hide last question
     score += getSelected(last);
     document.getElementById('Question' + last).style.display='none';
   }
 
-  if (current <= max) {
+  if (current <= totalQuestions) {
+    // If not the end of the quiz then move on to the next question
     document.getElementById('Question' + current).style.display='block';
   } else {
+    // If end of quiz then show result
     showResult();
   }
-
-  console.log(score);
 }
 
-function getSelected(q){
-  var radio = document.getElementById('MyForm').elements['A' + q];
+// Gets value for answer to current question
+function getSelected(questionNumber){
+  var radio = document.getElementById('MyForm').elements['A' + questionNumber];
   return +radio.value;
 }
 
+// Show result when quiz finished
 function showResult() {
-  var house;
+  var houseType;
   var houseImage;
+
+  // Set houseType and houseImage depending on score
   if (score <= 4) {
-    house = "Doghouse";
-    houseImage = 'https://cravencottagenewsround.files.wordpress.com/2014/08/doghouse.jpg';
+    houseType = "Doghouse";
+    houseImage = 'https://upload.wikimedia.org/wikipedia/commons/7/79/Castledaly_Manor_-_Doghouse_-_geograph.org.uk_-_1606827.jpg';
   } else if (score <= 6) {
-    house = "Warehouse";
-    houseImage = 'http://enpundit.s3.amazonaws.com/wp-content/uploads/2012/06/Oriental-Warehouse-Apartment-Loft-Conversion-in-San-Francisco-3.jpg';
+    houseType = "Warehouse";
+    houseImage = 'http://vignette2.wikia.nocookie.net/warehouse13/images/2/23/Warehouse_exterior.jpg/revision/latest?cb=20090817035740';
   } else {
-    house = "Farm";
-    houseImage = 'http://www.insurewithellis.com/uploads/1/3/3/7/13377767/9946815_orig.jpg';
+    houseType = "Farm";
+    houseImage = 'http://www.gwaenynog.com/wp-content/uploads/2013/03/Gwaenynog-Farmhouse-web.jpg';
   }
-  document.getElementById('Result').style.display='block';
-  document.getElementById('Score').textContent=house;
-  document.getElementById('houseImage').src=houseImage;
+
+  // Set text and image for results pane and then display it
+  document.getElementById('result').textContent = ' ' + houseType.toUpperCase();
+  document.getElementById('HouseImage').src = houseImage;
+  document.getElementById('results').style.display = 'block';
 }
