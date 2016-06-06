@@ -28,7 +28,7 @@
   WHERE DO YOU WANT TO LIVE?
 </div>
 <div id="div3">
-  <button name="startButton">GO!</button>
+  <button name="startButton" onclick="startQuestionnaire()">GO!</button>
 </div>
 <div id="div4">
   ;D
@@ -36,26 +36,53 @@
 
 </div>
 
+<!-- Questions  -->
+<form id="MyForm">
+<div id="Question1" class="question">
+  <h3>Would you like to live?</h3>
+
+<input type="radio" name="A1" value="1"> By yourself<br>
+<input type="radio" name="A1" value="2"> With other people<br>
+<input type="radio" name="A1" value="3"> With other animals<br>
+
+  <button type="button" onclick="getNext()">Next</button>
+</div>
+
+<div id="Question2" class="question">
+  <h3>What is your age?</h3>
+
+  <input type="radio" name="A2" value="1"> 0-19<br>
+  <input type="radio" name="A2" value="2"> 20-34<br>
+  <input type="radio" name="A2" value="3"> 35+<br>
+
+  <button type="button" onclick="getNext()">Next</button>
+  </div>
+
+  <div id="Question3" class="question">
+    <h3>What is your favourite type of meal?</h3>
+
+    <input type="radio" name="A3" value="1"> Raw meat and left-overs<br>
+    <input type="radio" name="A3" value="2"> Potluck<br>
+    <input type="radio" name="A3" value="3"> Organic free-range eggs, goat's yogurt, and kale<br>
+
+    <button type="button" onclick="getNext()">Next</button>
+  </div>
+</form>
+
+
 <!--Results-->
 
 <div id="results">
 
   <div>
-  <div id="resultsHeader"><p>YOU'RE REALLY LUCKY! YOU GET TO LIVE IN A</p><span id="result"></span> </div>
+  <div id="resultsHeader"><p>YOU GET TO LIVE IN A <span id="result"></span></p></div>
 
   <div>
-    <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Castledaly_Manor_-_Doghouse_-_geograph.org.uk_-_1606827.jpg">
+    <img id="HouseImage">
   </div>
-  <div>
-    <img id="image" src="http://vignette2.wikia.nocookie.net/warehouse13/images/2/23/Warehouse_exterior.jpg/revision/latest?cb=20090817035740">
-  </div>
-  <div>
-    <img id="image" src="http://www.gwaenynog.com/wp-content/uploads/2013/03/Gwaenynog-Farmhouse-web.jpg">
-  </div>
-
 </div>
 
 
-  <script src="js/scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>

@@ -63,3 +63,14 @@ button {
   font-family:"Fjalla One";
   font-size:60px;
 }
+
+/* Styles to integrate */
+
+
+.question {
+  display: none;
+}
+
+#results {
+  display: none;
+}
