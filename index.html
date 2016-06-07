@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+
+  <meta charset="utf-8">
+
+  <title>Where to Live</title>
+
+  <link rel="stylesheet" href="main.css">
+
+</head>
+
+
+
+<body>
+
+<!--Intro-->
+
+  <div id="intro">
+
+      <div id="header">WELCOME</div>
+      <div id="content">WHERE DO YOU WANT TO LIVE?</div>
+      <div id="next">
+        <button name="startButton" onclick="startQuestionnaire()">GO!</button>
+      </div>
+      <div id="footer">;D</div>
+
+  </div>
+
+<!-- Questions  -->
+  <form id="MyForm">
+
+    <div id="Question1" class="question">
+      <div id="header">Would you like to live?</div>
+      <div id="content">
+        <input type="radio" name="A1" value="1"> <span id="radioText">By yourself</span><br>
+        <input type="radio" name="A1" value="2"> <span id="radioText">With other people</span><br>
+        <input type="radio" name="A1" value="3"> <span id="radioText">With other animals</span><br>
+      </div>
+      <div id="next">
+        <button type="button" onclick="getNext()">Next</button>
+      </div>
+    </div>
+
+    <div id="Question2" class="question">
+      <div id="header">What is your age?</div>
+      <div id="content">
+        <input type="radio" name="A2" value="1"> <span id="radioText">0-19</span><br>
+        <input type="radio" name="A2" value="2"> <span id="radioText">20-34</span><br>
+        <input type="radio" name="A2" value="3"> <span id="radioText">35+</span><br>
+      </div>
+      <div id="next">
+        <button type="button" onclick="getNext()">Next</button>
+      </div>
+    </div>
+
+    <div id="Question3" class="question">
+      <div id="header">Favourite type of meal?</div>
+      <div id="content">
+        <input type="radio" name="A3" value="1"> <span id="radioText">Raw meat and left-overs</span><br>
+        <input type="radio" name="A3" value="2"> <span id="radioText">Potluck</span><br>
+        <input type="radio" name="A3" value="3"> <span id="radioText">Organic free-range eggs, goat's yogurt, and kale</span><br>
+      </div>
+      <div id="next">
+        <button type="button" onclick="getNext()">Next</button>
+      </div>
+    </div>
+  </form>
+
+
+<!--Results-->
+
+  <div id="results">
+    <div>
+      <div id="resultsHeader"><p>YOU GET TO LIVE IN A <span id="result"></span></p></div>
+      <div>
+        <img id="HouseImage">
+      </div>
+    </div>
+  </div>
+
+
+  <script src="scripts.js"></script>
+</body>
+</html>
