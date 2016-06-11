@@ -5,7 +5,7 @@ var totalQuestions = 3;      // Total number of questions
 
 // Start questionnaire: hide intro div and call getNext() on quiz
 function startQuestionnaire() {
-  current = 0;             // Current question (quiz not started so current question set to zero)
+  current = 0;
   score = 0;
   document.getElementById('intro').style.display='none';
   getNext();
@@ -65,6 +65,4 @@ function showResult() {
 function startAgain() {
   document.getElementById('results').style.display = 'none';
   document.getElementById('intro').style.display='block';
-  current = 0;
-  score = 0;
 }
