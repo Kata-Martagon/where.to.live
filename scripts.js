@@ -60,7 +60,22 @@ function showResult() {
   document.getElementById('result').textContent = ' ' + houseType.toUpperCase();
   document.getElementById('HouseImage').src = houseImage;
   document.getElementById('results').style.display = 'block';
-  fadeIn('playAgain');
+
+  //Play Again button fades in after 1.5 second delay
+  var restartButton = document.getElementById('playAgain');
+  restartButton.style.opacity = 0;
+
+  setTimeout(function() {
+    var opacity = 0;
+    var timer = setInterval(function () {
+      opacity += 0.05;
+
+      if (opacity >= 1 || opacity >= 1.0) {
+        clearInterval(timer);
+      }
+      restartButton.style.opacity = opacity;
+    }, 20);
+  }, 1500);
 }
 
 function startAgain() {
@@ -72,19 +87,4 @@ function startAgain() {
       ele[i].checked = false;
     }
   }
-}
-
-function fadeIn(elementToFadeIn) {
-  var op = 0;
-  var timer = setInterval(function () {
-    document.getElementById(elementToFadeIn).style.opacity = op;
-    console.log(op);
-      if (op >= 1 || op >= 1.0){
-          console.log('done', op)
-          clearInterval(timer);
-          return;
-      }
-      op += 0.01;
-    }, 50);
-    return this;
 }
