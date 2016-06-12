@@ -1,10 +1,12 @@
 // Global variables
-var current = 0;             // Current question (quiz not started so current question set to zero)
-var score = 0;               // Cumulative score
+var current;             // Current question (quiz not started so current question set to zero)
+var score;               // Cumulative score
 var totalQuestions = 3;      // Total number of questions
 
-// Start questionnaire: hide intro div and call getNext() on quize
+// Start questionnaire: hide intro div and call getNext() on quiz
 function startQuestionnaire() {
+  current = 0;
+  score = 0;
   document.getElementById('intro').style.display='none';
   getNext();
 }
@@ -42,7 +44,6 @@ function getSelected(questionNumber){
 function showResult() {
   var houseType;
   var houseImage;
-
   // Set houseType and houseImage depending on score
   if (score <= 4) {
     houseType = "Doghouse";
@@ -59,4 +60,15 @@ function showResult() {
   document.getElementById('result').textContent = ' ' + houseType.toUpperCase();
   document.getElementById('HouseImage').src = houseImage;
   document.getElementById('results').style.display = 'block';
+}
+
+function startAgain() {
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('intro').style.display='block';
+  for(var q = 1; q <= totalQuestions; q++) {
+    var ele = document.getElementsByName('A' + q);
+    for(var i = 0; i < ele.length; i++) {
+        ele[i].checked = false;
+    }
+  }
 }
