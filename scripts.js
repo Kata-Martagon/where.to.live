@@ -60,6 +60,7 @@ function showResult() {
   document.getElementById('result').textContent = ' ' + houseType.toUpperCase();
   document.getElementById('HouseImage').src = houseImage;
   document.getElementById('results').style.display = 'block';
+  fadeIn('playAgain');
 }
 
 function startAgain() {
@@ -68,7 +69,22 @@ function startAgain() {
   for(var q = 1; q <= totalQuestions; q++) {
     var ele = document.getElementsByName('A' + q);
     for(var i = 0; i < ele.length; i++) {
-        ele[i].checked = false;
+      ele[i].checked = false;
     }
   }
+}
+
+function fadeIn(elementToFadeIn) {
+  var op = 0;
+  var timer = setInterval(function () {
+    document.getElementById(elementToFadeIn).style.opacity = op;
+    console.log(op);
+      if (op >= 1 || op >= 1.0){
+          console.log('done', op)
+          clearInterval(timer);
+          return;
+      }
+      op += 0.01;
+    }, 50);
+    return this;
 }
