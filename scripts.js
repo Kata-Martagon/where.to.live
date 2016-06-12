@@ -1,6 +1,6 @@
 // Global variables
-var current = 0;             // Current question (quiz not started so current question set to zero)
-var score = 0;               // Cumulative score
+var current;             // Current question (quiz not started so current question set to zero)
+var score;               // Cumulative score
 var totalQuestions = 3;      // Total number of questions
 
 // Start questionnaire: hide intro div and call getNext() on quiz
