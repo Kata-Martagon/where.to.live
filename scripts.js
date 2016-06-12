@@ -65,4 +65,10 @@ function showResult() {
 function startAgain() {
   document.getElementById('results').style.display = 'none';
   document.getElementById('intro').style.display='block';
+  for(var q = 1; q <= totalQuestions; q++) {
+    var ele = document.getElementsByName('A' + q);
+    for(var i = 0; i < ele.length; i++) {
+        ele[i].checked = false;
+    }
+  }
 }
